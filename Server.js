@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-
+const path = require('path')
 const app = express();
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, "/build")));
 // API route for currency conversion
 app.get('/convert', (req, res) => {
   const baseCurrency = req.query.base;
